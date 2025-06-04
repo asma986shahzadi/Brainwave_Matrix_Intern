@@ -1,7 +1,7 @@
 # Brainwave_Matrix_Intern
 Task 1:
 Expense / Money Tracker Web-App
-Features you can include:
+Features include:
 
 User authentication (login/signup)
 
