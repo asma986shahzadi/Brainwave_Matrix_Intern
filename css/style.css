@@ -1,0 +1,40 @@
+/* General Reset & Body */
+* { 
+    margin:0; padding:0; 
+    box-sizing:border-box; 
+    font-family:'Poppins',sans-serif; 
+}
+body { 
+    background:#f0f2f5; 
+    min-height:100vh; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center; 
+    color:#333; 
+}
+.container { background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); width:90%; max-width:800px; }
+.landing { text-align:center; }
+.landing-buttons { display:flex; gap:20px; justify-content:center; margin-top:20px; }
+.btn, button { padding:10px 18px; border:none; border-radius:8px; font-size:16px; cursor:pointer; transition:0.3s ease; }
+.btn { background:#6a5acd; color:#fff; text-decoration:none; }
+.btn:hover { background:#836fff; }
+.outline { background:transparent; color:#6a5acd; border:2px solid #6a5acd; }
+.auth-card h1, .dashboard header h2 { margin-bottom:15px; }
+.auth-card, .dashboard { display:flex; flex-direction:column; gap:20px; }
+input, select { padding:10px; border:1px solid #ccc; border-radius:8px; transition:0.3s; }
+input:focus, select:focus { border-color:#6a5acd; box-shadow:0 0 5px rgba(106,90,205,.3); outline:none; }
+.controls { display:flex; gap:10px; justify-content:flex-end; }
+.budget-section { margin-bottom:10px; }
+.expense-form, .filters, .actions { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+.expense-form input, .expense-form select { flex:1; min-width:120px; }
+.expense-table table { width:100%; border-collapse:collapse; margin-top:10px; }
+table th, table td { padding:10px 8px; border-bottom:1px solid #eee; font-size:14px; }
+.actions button { background:#444; color:#fff; }
+.actions button:hover { background:#222; }
+.chart-section canvas { width:100%; max-height:250px; margin-top:20px; }
+.hidden { display:none; }
+body.dark { background:#121212; color:#eee; }
+body.dark .container { background:#1e1e1e; color:#eee; }
+body.dark input, body.dark select, body.dark button, body.dark .btn, body.dark .actions button { background:#333; color:#eee; border-color:#555; }
+body.dark .outline { border-color:#aaa; color:#aaa; }
+@media(max-width:600px){ .expense-form, .filters, .actions { flex-direction:column; } .controls { flex-direction:column; } .landing-buttons { flex-direction:column; } }

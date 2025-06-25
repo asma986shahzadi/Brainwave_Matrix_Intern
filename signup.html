@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Expense Tracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5;">
+  <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 400px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <h2>Sign Up 💸</h2>
+    <form onsubmit="handleSignup(event)">
+      <input id="fullName" type="text" placeholder="Full Name" required style="margin: 10px 0; padding: 10px; width: 100%;"/>
+      <input id="phone" type="text" placeholder="Phone Number" style="margin: 10px 0; padding: 10px; width: 100%;"/>
+      <input id="username" type="text" placeholder="Username" required style="margin: 10px 0; padding: 10px; width: 100%;"/>
+      <input id="password" type="password" placeholder="Password" required style="margin: 10px 0; padding: 10px; width: 100%;"/>
+      <button type="submit" style="background-color: #6a5acd; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px;">Sign Up</button>
+    </form>
+    <p style="margin-top: 15px;">Already have an account? <a href="login.html">Login</a></p>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

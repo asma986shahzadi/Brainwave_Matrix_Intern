@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dashboard | Expense Tracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  <script src="js/script.js"></script>
+
+</head>
+<body style="margin:0; font-family:'Poppins', sans-serif; background:#f0f2f5; color:#333; display:flex; justify-content:center; align-items:center; min-height:100vh;">
+
+  <div class="container dashboard hidden" style="
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    width: 95%;
+    max-width: 1000px;
+    animation: fadeIn 0.8s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  ">
+  
+    <!-- Header -->
+    <header style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+      <h2 style="font-size: 1.5rem;">Welcome, <span id="userDisplay" style="color: #6a5acd;"></span>!</h2>
+      <div class="controls" style="display:flex; gap:10px;">
+        <button onclick="toggleDarkMode()" style="padding:10px 14px; background:#6a5acd; color:white; border:none; border-radius:8px; cursor:pointer;">🌓 Theme</button>
+        <button onclick="logout()" style="padding:10px 14px; background:#ff4d4d; color:white; border:none; border-radius:8px; cursor:pointer;">Logout</button>
+      </div>
+    </header>
+
+    <!-- Budget -->
+    <section class="budget-section" style="display:flex; flex-direction:column; gap:10px;">
+      <input type="number" id="budget" placeholder="Monthly Budget (Rs)" style="padding:10px; border:1px solid #ccc; border-radius:8px;"/>
+      <div id="totalSpent" class="total-spent" style="font-weight:bold; color:#444;">Total this month: Rs 0</div>
+    </section>
+
+    <!-- Expense Form -->
+    <section class="expense-form" style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <input type="number" id="amount" placeholder="Amount" style="flex:1; min-width:120px; padding:10px; border-radius:8px; border:1px solid #ccc;" />
+      <input type="date" id="date" style="flex:1; min-width:140px; padding:10px; border-radius:8px; border:1px solid #ccc;" />
+      <select id="category" style="flex:1; min-width:140px; padding:10px; border-radius:8px; border:1px solid #ccc;">
+        <option>Food</option><option>Rent</option><option>Transport</option><option>Other</option>
+      </select>
+      <input type="text" id="note" placeholder="Note" style="flex:2; min-width:200px; padding:10px; border-radius:8px; border:1px solid #ccc;" />
+      <label style="display:flex; align-items:center; gap:6px; min-width:160px;">
+        <input type="checkbox" id="recurring"/> Recurring monthly
+      </label>
+      <button onclick="addOrUpdateExpense()" style="padding:10px 18px; background:#6a5acd; color:white; border:none; border-radius:8px; cursor:pointer;">Add Expense</button>
+    </section>
+
+    <!-- Expense Table -->
+    <section class="expense-table">
+      <h3 style="margin:10px 0;">Your Expenses</h3>
+
+      <!-- Filters -->
+      <div class="filters" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
+        <input type="date" id="fromDate" style="padding:10px; border-radius:8px; border:1px solid #ccc;"/>
+        <input type="date" id="toDate" style="padding:10px; border-radius:8px; border:1px solid #ccc;"/>
+        <input type="text" id="search" placeholder="Search..." onkeyup="renderExpenses()" style="flex:1; padding:10px; border-radius:8px; border:1px solid #ccc;"/>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions" style="display:flex; gap:10px; margin-bottom:10px;">
+        <button onclick="exportPDF()" style="padding:10px; background:#3b82f6; color:white; border:none; border-radius:8px; cursor:pointer;">⬇ Export PDF</button>
+        <button onclick="clearAllData()" style="padding:10px; background:#e11d48; color:white; border:none; border-radius:8px; cursor:pointer;">🗑️ Clear Data</button>
+      </div>
+
+      <!-- Table -->
+      <table id="expenseTable" style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr style="background:#f9fafb;">
+            <th style="padding:10px; text-align:left;">Date</th>
+            <th style="padding:10px; text-align:left;">Amount</th>
+            <th style="padding:10px; text-align:left;">Category</th>
+            <th style="padding:10px; text-align:left;">Note</th>
+            <th style="padding:10px; text-align:left;">Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Charts -->
+    <section class="chart-section" style="margin-top:20px;">
+      <h3 style="margin-bottom:10px;">Monthly Overview</h3>
+      <canvas id="expenseChart" height="200" style="background:#fff; border-radius:10px;"></canvas>
+      <h3 style="margin:20px 0 10px;">Category Overview</h3>
+      <canvas id="categoryChart" height="200" style="background:#fff; border-radius:10px;"></canvas>
+    </section>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

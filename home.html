@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Expense Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body style="
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('assets/expense.png') no-repeat center center / cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: backgroundFade 8s ease-in-out infinite alternate;
+">
+
+  <div style="
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+    animation: fadeIn 1.2s ease-out;
+  ">
+    <h1 style="
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #6a5acd;
+      text-shadow: 0 0 8px rgba(106, 90, 205, 0.4);
+    ">
+      💸 Welcome to Expense Tracker
+    </h1>
+
+    <p style="
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 30px;
+    ">
+      Track your spending. Set goals. Take full control of your finances.
+    </p>
+
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+      <a href="signup.html" style="
+        padding: 12px 24px;
+        background: #6a5acd;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        transition: 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      " onmouseover="this.style.background='#836fff'" onmouseout="this.style.background='#6a5acd'">
+        🚀 Get Started
+      </a>
+
+      <a href="login.html" style="
+        padding: 12px 24px;
+        background: transparent;
+        color: #6a5acd;
+        border: 2px solid #6a5acd;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        transition: 0.3s ease;
+      " onmouseover="this.style.background='#6a5acd'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#6a5acd'">
+        🔐 Login
+      </a>
+    </div>
+  </div>
+
+  <!-- Inline animation keyframes -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes backgroundFade {
+      0% { background: linear-gradient(135deg, #6a5acd, #b19cd9); }
+      100% { background: linear-gradient(135deg, #836fff, #d8b4f8); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem !important;
+      }
+    }
+  </style>
+</body>
+</html>
